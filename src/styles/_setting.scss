@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Anybody&family=Inria+Sans:wght@300;400;700&family=Nunito&display=swap');
+
+$background : #222831;
+$color1 : #EEEEEE;
+$color2:#00ADB5;
+$color3: #000000;
+
+
+$fontsizetitle : 48px;
+$fontsizesubtitle : 24px;
+$fontsizetask:28px;
+
+
+body{
+    margin: 0px;
+    background: $background;
+    font-size: 24px;
+    font-family: "Anybody";
+}
+
+@media screen and (max-width:1100px) {
+
+    body{
+        font-size: 0.9rem;
+    }
+    
+}
+

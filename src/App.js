@@ -1,45 +1,68 @@
-import React, { useEffect, useState } from 'react';
-import Task from './components/Task';
+import React, { useEffect, useState } from "react";
+import TaskForm from "./components/TaskForm";
+import { useSelector } from "react-redux";
+import Task from "./components/Task";
 
 const App = () => {
-  const [newTask,setNewTask] = useState('')
-  const [task, setTask] = useState([])
-  const [completedTasks , setCompletedTasks] = useState([])
 
-const markTaskDone = (index) =>{
-  const completedTask = task[index]
-  setCompletedTasks([...completedTasks,completedTask])
-  const updatedTask = task.filter((_,i) => i !== index)
-  setTask(updatedTask)
-}
+  const tasks = useSelector((state)=>state.taskReducer)
+  const [filter,setFilter] = useState("all")
 
-  const handleNewTask = (e) =>{
-    e.preventDefault()
-    setTask([...task,newTask])
-    setNewTask('')
-  }
-
-
+  const filteredTask = tasks.filter((task)=>{
+    if (filter === "all"){
+      return true
+    } else if (filter === "todo" && task.status ==="todo"){
+      return true
+    }
+    else if (filter === "done" && task.status ==="done"){
+      return true
+    }
+    return false
+  })
 
   return (
-    <div>
-      <h2 className='app-title'>ToDo App</h2>
+    <div className="app">
+      <h2 className="app-title">To Do App</h2>
       <div className="container">
-        <form className="new-task">
-          <input type="text" placeholder='Add new task' id='new-task' value={newTask} onChange={(e)=>setNewTask(e.target.value)}/>
-          <button className='submit' onClick={handleNewTask} >ADD</button>
-        </form>
-        <h2>Tasks :</h2>
-        <ul className="task">
-          {task.map((item,index)=>(<Task key={index} index={index} task={item} markTaskDone={markTaskDone}/>))}
-        </ul>
-        <h2>Completed Tasks :</h2>
-        <ul className='completed-task'>
-            {completedTasks.map((item,index)=>(<li key={index}>{item}</li>))}
-        </ul>
+        <TaskForm />
+        <div className="filter-container">
+          <div className={`filter-button ${filter === "todo" ? "active" : ""}`} onClick={() => setFilter("todo")}>Todo</div>
+          <div className={`filter-button ${filter === "done" ? "active" : ""}`} onClick={() => setFilter("done")}>Done</div>
+          <div className={`filter-button ${filter === "all" ? "active" : ""}`} onClick={() => setFilter("all")}>All</div>
         </div>
+        <div className="separator"></div>
+        <div className="task-container">
+          {filter === "all" ? (
+            <div className="all-task">
+              <div className="all-todo">
+                {`Todo (${filteredTask.filter(task => task.status === "todo").length}) :`}
+                {filteredTask
+                  .filter(task => task.status === "todo")
+                  .map((task, index) => (
+                    <Task task={task} key={index} index={index} />
+                  ))}
+              </div>
+              <div className="all-done">
+                {`Done (${filteredTask.filter(task => task.status === "done").length}) :`}
+                {filteredTask
+                  .filter(task => task.status === "done")
+                  .map((task, index) => (
+                    <Task task={task} key={index} index={index} />
+                  ))}
+              </div>
+            </div>
+          ) : (
+            <div className="task-list">
+              {` ${filter === "todo" ? "Todo" : "Done"} (${filteredTask.length}) :`}
+              {filteredTask.map((task, index) => (
+                <Task task={task} key={index} index={index} />
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
     </div>
-  );
-};
+  )
+}
 
 export default App;

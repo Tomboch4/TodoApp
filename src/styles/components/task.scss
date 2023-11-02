@@ -1,0 +1,129 @@
+.task{
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+    align-items: center;
+}
+
+.task:last-child{
+    margin-bottom: 30px;
+}
+
+
+.change-status{
+    position: relative;
+    left: 10%;
+}
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+    border: 2px solid $color2;
+    background-color: $color1;
+    border-radius: 5px;
+}
+
+.checkedbox{
+    width: 20px;
+    height: 20px;
+    border: 2px solid $color2;
+    background-color: $color1;
+    border-radius: 5px;
+}
+
+.task-text{
+    position: relative;
+    left: 15%;
+    color: $color1;
+    width: 300px;
+}
+
+.edit-delete{
+    position: relative;
+    left: 20%;
+    display: flex;
+    margin-left: 20px;
+}
+
+.edit-delete img{
+    height: 30px;
+    
+}
+
+.editable{
+    position: relative;
+    left: 20%;
+
+    .editsubmit{
+        height: 34px;
+        padding: 0px 10px;
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width:1100px) {
+
+    .edit-delete{
+        left: 15%;
+    }
+    
+    .editable{
+        width: 300px;
+        position: relative;
+        left: 20%;
+        input{
+            height: 25px;
+        }
+        
+        .editsubmit{
+            height: 29px;
+            padding: 0px 10px;
+            margin-left: 10px;
+        }
+    }
+
+    .checkbox{
+        width: 15px;
+        height: 15px;
+    }
+    
+    .checkedbox{
+        width: 15px;
+        height: 15px;
+    }
+
+    .edit-delete img{
+        height: 25px;   
+    }
+
+}
+
+
+@media screen and (max-width:700px) {
+    .task{
+        margin-top:15px;
+    }
+    
+    .task:last-child{
+        margin-bottom: 20px;
+    }
+
+    .editable{
+        position: relative;
+        left: 20%;
+        input{
+            height: 17px;
+        }
+
+        .editable-text{
+            width: 50%;
+        }
+        
+        .editsubmit{
+            height: 22px;
+            padding: 0px 5px;
+            margin-left: 10px;
+            width: 30%;
+        }
+    }
+}

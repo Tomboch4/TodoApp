@@ -1,0 +1,48 @@
+
+input{
+    border: 1px solid $color2;
+    border-radius: 10px;
+    height: 30px;
+}
+
+.form-text{
+    width: 200px;
+    margin-right: 20px;
+    padding-left: 10px;
+}
+
+.form-text:focus{
+    outline-color: $color2;
+}
+
+
+.submit-button{
+    height: 34px;
+    padding: 0px 10px ;
+    font-weight: bold;
+}
+
+@media screen and (max-width:1100px) {
+    input{
+        height: 25px;
+        border-radius: 5px;
+    }
+    .submit-button{
+        height: 29px;
+    }
+    
+}
+
+@media screen and (max-width:600px) {
+    input{
+        height: 20px;
+        border-radius: 5px;
+    }
+
+    .form-text{
+        width: 150px;
+    }
+    .submit-button{
+        height: 24px;
+    }
+}
