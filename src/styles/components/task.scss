@@ -123,16 +123,10 @@
             height: 22px;
             padding: 0px 5px;
             margin-left: 10px;
-            min-width: 50px;
+            min-width: fit-content;
             width: 30%;
         }
         
     }
-    .editable-text:focus {
-        transform: scale(1.2);
-        transition: transform 0.2s;
-      }
-      .editable-text:blur {
-        transform: scale(1);
-      }
+
 }

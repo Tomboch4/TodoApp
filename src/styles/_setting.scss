@@ -25,4 +25,17 @@ body{
     }
     
 }
+@media screen and (max-width:767px) {
+
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"] {
+      -webkit-appearance: none;
+      border: 1px solid $color2;
+      background-color: $color1;
+    border-radius: 10px;
+      cursor: pointer;
+    }
+    
+}
 
