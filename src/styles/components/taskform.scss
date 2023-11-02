@@ -33,7 +33,7 @@ input{
     
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:767px) {
     input{
         height: 20px;
         border-radius: 5px;
@@ -45,4 +45,20 @@ input{
     .submit-button{
         height: 24px;
     }
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"] {
+      -webkit-appearance: none;
+      border: 1px solid $color2;
+    border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .form-text:focus {
+        transform: scale(1.2);
+        transition: transform 0.2s;
+      }
+      .form-text:blur {
+        transform: scale(1);
+      }
 }
