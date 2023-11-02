@@ -6,3 +6,6 @@ Possible actions :
 - Display all your task or filter the display by status ("todo" or "done")
 - Change the status for each task
 - Modify or deleate each task
+
+Project made with : 
+JS, REACT, REDUX, HTML and SASS
